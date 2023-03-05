@@ -8,6 +8,7 @@ import bookIcon from '../assets/images/book.png'
 import doctorIcon from '../assets/images/doctor.png'
 import heartIcon from '../assets/images/heart.png'
 import pillIcon from '../assets/images/pill.png'
+import phoneIcon from '../assets/images/phone.png'
 
 
 export const images = {
@@ -20,5 +21,6 @@ export const images = {
     bookIcon: bookIcon,
     heartIcon: heartIcon,
     doctorIcon: doctorIcon,
-    pillIcon:pillIcon
+    pillIcon: pillIcon,
+    phoneIcon:phoneIcon
 };

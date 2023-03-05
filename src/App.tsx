@@ -4,6 +4,7 @@ import axios from 'axios';
 import React, {useEffect, useState} from 'react';
 import {Image} from 'react-bootstrap';
 import ProfileScreen from './screens/ProfileScreen';
+import AlarmScreen from './screens/AlarmScreen';
 
 import {
   Button,
@@ -16,7 +17,6 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
-
 import {
   Colors,
   DebugInstructions,
@@ -27,8 +27,9 @@ import {
 
 import styled from 'styled-components/native';
 import IconButton from './components/IconButton';
-import MainButton from './components/MainButton';
+import MainButton, {SmallButton} from './components/MainButton';
 import {images} from './image';
+import PillAlarm from './components/PillAlarm';
 
 interface PropsType {
   width: number;
@@ -40,7 +41,6 @@ type DataType = {
   price: number;
   count: number;
 };
-
 const FullView = styled.SafeAreaView`
   flex: 1;
   flex-direction: column;
@@ -66,8 +66,11 @@ export const LogoImage = styled.Image<PropsType>`
   width: ${props => props.width}%;
 `;
 export const MainView = styled.View`
+  flex: 6;
+  background-color: #d8ecff;
+`;
+const EmergencyView = styled(MainView)`
   flex: 1;
-  background-color: #f9e8e8;
 `;
 export const WhiteBackGround = styled.View`
   width: 90%;
@@ -77,39 +80,9 @@ export const WhiteBackGround = styled.View`
   background: #ffffff;
   border-radius: 30px;
 `;
-
 const HomeScreen = ({navigation, route}: any) => {
   return (
     <MainView>
-      <WhiteBackGround>
-        <MainButton
-          text={'내정보'}
-          types={images.doctorIcon}
-          onPress={() => navigation.navigate('Profile')}
-        />
-        <MainButton
-          text={'건강백서'}
-          types={images.bookIcon}
-          onPress={() => navigation.navigate('Profile1')}
-        />
-        <MainButton text={'건강체크'} types={images.heartIcon} />
-        <MainButton text={'투약알람'} types={images.pillIcon} />
-      </WhiteBackGround>
-    </MainView>
-  );
-};
-
-const Stack = createNativeStackNavigator();
-const App = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <FullView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <Navbar>
         <Logo>
           <LogoImage source={images.mainLogo} width={80} resizeMode="contain" />
@@ -118,6 +91,36 @@ const App = () => {
           <LogoImage source={images.menuIcon} width={30} resizeMode="contain" />
         </MenuIcon>
       </Navbar>
+      <WhiteBackGround>
+        <MainButton
+          text={'내정보'}
+          types={images.doctorIcon}
+          onPress={() => {
+            navigation.navigate('내 정보');
+          }}
+        />
+        <MainButton text={'건강백서'} types={images.bookIcon} />
+        <MainButton text={'건강체크'} types={images.heartIcon} />
+
+        <MainButton
+          text={'투약알람'}
+          types={images.pillIcon}
+          onPress={() => navigation.navigate('투약 알람')}
+        />
+      </WhiteBackGround>
+    </MainView>
+  );
+};
+const Stack = createNativeStackNavigator();
+const App = () => {
+  const isDarkMode = useColorScheme() === 'dark';
+  const backgroundStyle = {
+    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+  };
+  return (
+    <FullView style={backgroundStyle}>
+      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+
       <MainView>
         <NavigationContainer>
           <Stack.Navigator>
@@ -128,11 +131,20 @@ const App = () => {
                 headerShown: false,
               }}
             />
-            <Stack.Screen name="Profile" component={ProfileScreen}  />
-            <Stack.Screen name="Profile1" component={ProfileScreen} />
+            <Stack.Screen name="내 정보" component={ProfileScreen} />
+            <Stack.Screen name="투약 알람" component={AlarmScreen} />
           </Stack.Navigator>
         </NavigationContainer>
       </MainView>
+
+      <EmergencyView>
+        <SmallButton
+          colorTheme={'#F1B6B6'}
+          text={'긴급 전화'}
+          types={images.phoneIcon}
+        />
+      </EmergencyView>
+
       <Navbar>
         <IconButton types={images.homeIcon} width={18} />
         <IconButton types={images.searchIcon} width={18} />
@@ -142,7 +154,6 @@ const App = () => {
     </FullView>
   );
 };
-
 const styles = StyleSheet.create({
   sectionContainer: {
     marginTop: 32,
@@ -156,9 +167,6 @@ const styles = StyleSheet.create({
     marginTop: 8,
     fontSize: 18,
     fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
   },
 });
 
