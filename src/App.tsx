@@ -5,6 +5,7 @@ import React, {useEffect, useState} from 'react';
 import {Image} from 'react-bootstrap';
 import ProfileScreen from './screens/ProfileScreen';
 import AlarmScreen from './screens/AlarmScreen';
+import HealthViewScreen from './screens/HealthViewScreen';
 
 import {
   Button,
@@ -64,8 +65,8 @@ const MenuIcon = styled.TouchableOpacity`
 `;
 export const LogoImage = styled.Image<PropsType>`
   width: ${props => props.width}%;
-  justify-content:center;
-  align-items:center;
+  justify-content: center;
+  align-items: center;
 `;
 export const MainView = styled.View`
   flex: 6;
@@ -101,7 +102,11 @@ const HomeScreen = ({navigation, route}: any) => {
             navigation.navigate('내 정보');
           }}
         />
-        <MainButton text={'건강백서'} types={images.bookIcon} />
+        <MainButton
+          text={'건강백서'}
+          types={images.bookIcon}
+          onPress={() => navigation.navigate('건강백서')}
+        />
         <MainButton text={'건강체크'} types={images.heartIcon} />
 
         <MainButton
@@ -135,6 +140,7 @@ const App = () => {
             />
             <Stack.Screen name="내 정보" component={ProfileScreen} />
             <Stack.Screen name="투약 알람" component={AlarmScreen} />
+            <Stack.Screen name='건강백서' component ={HealthViewScreen}/>
           </Stack.Navigator>
         </NavigationContainer>
       </MainView>

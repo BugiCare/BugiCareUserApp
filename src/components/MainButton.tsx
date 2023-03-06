@@ -18,11 +18,13 @@ const MainButtonBG = styled(Button)<ButtonTheme>`
 flex:${props => props.flex};
 flex-direction:row;
 align-items:center;
+
 position:relative;
 margin:auto;
 margin-top:10px;
 margin-bottom:10px;
-padding-left:10px;
+padding-left:20;
+padding-right:20;
 background: ${props => props.theme};
 border-radius: 100px;
 `
@@ -30,8 +32,8 @@ const ButtonText = styled.Text<ButtonTextType>`
 font-weight: ${props => props.fontWeight};
 font-size: ${props => props.fontSize}px;
 font-family:'BMJUA';
-padding-left:20px;
-text-align: center;
+
+margin:auto;
 color: #040202;
 `
 type MainButtonType = {
@@ -59,7 +61,7 @@ export const SmallButton = ({colorTheme,text,types,onPress}:MainButtonType) => {
 }
 export const TopButton = ({colorTheme,text,onPress}:MainButtonType) => {
     return (
-        <MainButtonBG  flex={0.1} theme ={colorTheme} width={40} onPress={onPress}>
+        <MainButtonBG  flex={0.1} theme ={colorTheme} width={50} onPress={onPress}>
             <ButtonText fontWeight={400} fontSize={20}>{text}</ButtonText>
         </MainButtonBG>
     )

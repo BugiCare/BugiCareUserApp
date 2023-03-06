@@ -61,7 +61,7 @@ const AlarmScreen = () => {
       const array = [...alarmInfo,newAlarm ];
     setAlarmInfo(array);
     hideTextInput();
-      
+    setTitle('')
 
     hideDatePicker();
     
