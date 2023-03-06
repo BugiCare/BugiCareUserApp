@@ -29,6 +29,7 @@ border-radius: 100px;
 const ButtonText = styled.Text<ButtonTextType>`
 font-weight: ${props => props.fontWeight};
 font-size: ${props => props.fontSize}px;
+font-family:'BMJUA';
 padding-left:20px;
 text-align: center;
 color: #040202;

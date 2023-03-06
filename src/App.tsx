@@ -64,6 +64,8 @@ const MenuIcon = styled.TouchableOpacity`
 `;
 export const LogoImage = styled.Image<PropsType>`
   width: ${props => props.width}%;
+  justify-content:center;
+  align-items:center;
 `;
 export const MainView = styled.View`
   flex: 6;
@@ -93,8 +95,8 @@ const HomeScreen = ({navigation, route}: any) => {
       </Navbar>
       <WhiteBackGround>
         <MainButton
-          text={'내정보'}
-          types={images.doctorIcon}
+          text={'내 정보'}
+          types={images.myInfoIcon}
           onPress={() => {
             navigation.navigate('내 정보');
           }}

@@ -17,7 +17,7 @@ width:${props =>props.width}%;
 
 const IconButton = ({types,width}:PropsType )=> {
     return (
-        <Button hitSlop={10} width ={width} onPressOut={()=>{console.log(1)}}>
+        <Button hitSlop={5} width ={width} onPressOut={()=>{console.log(1)}}>
             <LogoImage source={types} width={100} resizeMode='contain'/>
         </Button>
     )

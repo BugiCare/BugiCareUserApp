@@ -11,6 +11,7 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		52F0991A29B591BC004A2638 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 52F0991929B591BC004A2638 /* Fonts */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		9F1D19ADAF6225E946D4000D /* libPods-BugiCareUserApp-BugiCareUserAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25225C9CA147F35BFA2821B7 /* libPods-BugiCareUserApp-BugiCareUserAppTests.a */; };
 		D3811673D84EF71E0E2ADA52 /* libPods-BugiCareUserApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3351F3BA0A17FF6A80B1277B /* libPods-BugiCareUserApp.a */; };
@@ -38,6 +39,7 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = BugiCareUserApp/main.m; sourceTree = "<group>"; };
 		25225C9CA147F35BFA2821B7 /* libPods-BugiCareUserApp-BugiCareUserAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BugiCareUserApp-BugiCareUserAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3351F3BA0A17FF6A80B1277B /* libPods-BugiCareUserApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BugiCareUserApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		52F0991929B591BC004A2638 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Fonts; sourceTree = "<group>"; };
 		5F02CC25180862386BFF6C4F /* Pods-BugiCareUserApp-BugiCareUserAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BugiCareUserApp-BugiCareUserAppTests.debug.xcconfig"; path = "Target Support Files/Pods-BugiCareUserApp-BugiCareUserAppTests/Pods-BugiCareUserApp-BugiCareUserAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = BugiCareUserApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B0A74BFCCFCBE7997702A279 /* Pods-BugiCareUserApp-BugiCareUserAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BugiCareUserApp-BugiCareUserAppTests.release.xcconfig"; path = "Target Support Files/Pods-BugiCareUserApp-BugiCareUserAppTests/Pods-BugiCareUserApp-BugiCareUserAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				52F0991929B591BC004A2638 /* Fonts */,
 				13B07FAE1A68108700A75B9A /* BugiCareUserApp */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* BugiCareUserAppTests */,
@@ -242,6 +245,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52F0991A29B591BC004A2638 /* Fonts in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);

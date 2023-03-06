@@ -34,30 +34,34 @@ const Alarm = ({alarmTime,title}:AlarmType) => {
   return (
     <View style={styles.container}>
       <Text style={styles.heading}>{title }</Text>
-
       {
         <Text style={styles.alarmTime}>
-          Alarm set for {moment(alarmTime).format('h:mm A')}
+          {moment(alarmTime).format('h:mm A')}
         </Text>
       }
-
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 0.5,
+    flex: 1,
+    
+    padding:10,
+    marginLeft: 40,
+    marginRight:100,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
   },
   heading: {
-    fontSize: 24,
-    marginBottom: 24,
+    fontSize: 30,
+    fontFamily:'BMJUA',
+    marginBottom: 20,
   },
   alarmTime: {
-    fontSize: 18,
+    fontSize: 24,
+    fontFamily:'BMJUA',
     marginVertical: 24,
   },
 });
