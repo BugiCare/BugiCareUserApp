@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, {useEffect, useState} from 'react';
-import {Text, View} from 'react-native';
+import {Image, Text, View} from 'react-native';
 import styled from 'styled-components/native';
 import MainButton from '../components/MainButton';
 import {images} from '../image';
@@ -62,6 +62,7 @@ const ProfileTextKey = styled.Text`
 
 const ProfileScreen = ({navigation, route}: any) => {
   const [num, setNum] = useState(0);
+  const [profileImg, setProfileImg] = useState('');
   const [selectedInfo, setSelectedInfo] = useState('#93ddff');
   const [myInfo, setMyInfo] = useState<DataTypes[]>([
     {id: '1', name: '김용남', address: '98세', age: 193, phoneNum: 1},
@@ -80,12 +81,19 @@ const ProfileScreen = ({navigation, route}: any) => {
         setMyInfo(infoData);
       });
   };
+  const getProfileImage = () => {
+    axios.get('http://127.0.0.1:5001/image2').then(json => {
+      const img = json.data;
+      console.log(img.img)
+      setProfileImg(`data:image/png;base64,${img.img}`)
+    });
+  };
   useEffect(() => {
     getInfo();
+    getProfileImage();
   }, []);
   return (
     <MainView>
-
       <SelectBarView>
         <SelectBar
           theme={'#93ddff'}
@@ -109,7 +117,8 @@ const ProfileScreen = ({navigation, route}: any) => {
           {selectedInfo === '#d2c9ff' ? (
             <>
               <View style={{flex: 4, flexDirection: 'row'}}>
-                <ProfilePhoto source={images.myInfoIcon} resizeMode="contain" />
+               
+                <ProfilePhoto source={{uri: profileImg}} resizeMode="contain" />
                 <View style={{flex: 3, justifyContent: 'center'}}>
                   <Text style={{padding: 10}}>사회복지사</Text>
                   <Text style={{padding: 10, fontSize: 20}}>최한성</Text>
