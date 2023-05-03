@@ -84,7 +84,6 @@ const ProfileScreen = ({navigation, route}: any) => {
   const getProfileImage = () => {
     axios.get('http://127.0.0.1:5001/image2').then(json => {
       const img = json.data;
-      console.log(img.img)
       setProfileImg(`data:image/png;base64,${img.img}`)
     });
   };

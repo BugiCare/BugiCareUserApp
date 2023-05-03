@@ -488,8 +488,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U6V56B5HN8;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = BugiCareUserApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BugiCareUserApp;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -514,7 +516,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U6V56B5HN8;
 				INFOPLIST_FILE = BugiCareUserApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BugiCareUserApp;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
