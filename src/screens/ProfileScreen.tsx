@@ -8,11 +8,11 @@ import {WhiteBackGround, MainView} from '../App';
 import TimePicker from '../components/Alarm';
 
 interface DataTypes {
-  id: string;
+  id: number;
   name: string;
   address: string;
   age: number;
-  phoneNum: number;
+  phone: string;
 }
 interface SelectBarTheme {
   theme: string;
@@ -65,7 +65,7 @@ const ProfileScreen = ({navigation, route}: any) => {
   const [profileImg, setProfileImg] = useState('');
   const [selectedInfo, setSelectedInfo] = useState('#93ddff');
   const [myInfo, setMyInfo] = useState<DataTypes[]>([
-    {id: '1', name: '김용남', address: '98세', age: 193, phoneNum: 1},
+    {"id":1,"name":"곽철남","address":"경기도 고양시 덕양구 도래울로16 611동 904호","age":76,"phone":"010-1111-1111"}
   ]);
   const nextNum = () => {
     setNum(num + 1);
@@ -73,9 +73,7 @@ const ProfileScreen = ({navigation, route}: any) => {
   };
   const getInfo = () => {
     axios
-      .get(
-        'https://raw.githubusercontent.com/BugiCare/BugiCareUserApp/master/src/data.json',
-      ) // 여기에 아마 서버 주소??
+      .get('http://15.164.7.163:8080/allUser') // 여기에 아마 서버 주소??
       .then(json => {
         const infoData = json.data;
         setMyInfo(infoData);
@@ -84,7 +82,7 @@ const ProfileScreen = ({navigation, route}: any) => {
   const getProfileImage = () => {
     axios.get('http://127.0.0.1:5001/image2').then(json => {
       const img = json.data;
-      setProfileImg(`data:image/png;base64,${img.img}`)
+      setProfileImg(`data:image/png;base64,${img.img}`);
     });
   };
   useEffect(() => {
@@ -111,12 +109,11 @@ const ProfileScreen = ({navigation, route}: any) => {
       </SelectBarView>
 
       <WhiteBackGround
-        style={{top: 50, height: 450, backgroundColor: selectedInfo}}>
+        style={{top: 50, height: 480, backgroundColor: selectedInfo}}>
         <WhiteBackGround style={{flex: 1, marginBottom: 20, marginTop: 20}}>
           {selectedInfo === '#d2c9ff' ? (
             <>
               <View style={{flex: 4, flexDirection: 'row'}}>
-               
                 <ProfilePhoto source={{uri: profileImg}} resizeMode="contain" />
                 <View style={{flex: 3, justifyContent: 'center'}}>
                   <Text style={{padding: 10}}>사회복지사</Text>
@@ -151,11 +148,11 @@ const ProfileScreen = ({navigation, route}: any) => {
               </ProfileTextBox>
               <ProfileTextBox>
                 <ProfileTextKey>연락처</ProfileTextKey>
-                <Text>0{myInfo[num].phoneNum}</Text>
+                <Text>{myInfo[num].phone}</Text>
               </ProfileTextBox>
               <ProfileTextBox>
                 <ProfileTextKey>주소</ProfileTextKey>
-                <Text>{myInfo[num].address}</Text>
+                <Text style={{width:200}}>{myInfo[num].address}</Text>
               </ProfileTextBox>
               <View style={{flex: 0.5}}></View>
             </>
